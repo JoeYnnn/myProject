@@ -1,0 +1,6 @@
+{
+  "name": "TitleLayout",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TitleLayout.js"
+}

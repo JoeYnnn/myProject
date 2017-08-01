@@ -1,0 +1,9 @@
+
+database.sqlite
+node_modules
+ncp-debug.log
+npm-debug.log
+
+.DS_Store
+.idea
+*.log
