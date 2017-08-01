@@ -20,6 +20,7 @@ export default class index extends React.Component {
                 <h2>或者一些JS逻辑</h2>
                 <h2>或者一些自己喜欢的东西</h2>
                 <h2>或者一些酷炫的东西</h2>
+                <h4>---- 2017.8.1</h4>
             </div>
         )
     }

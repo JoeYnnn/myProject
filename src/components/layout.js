@@ -16,7 +16,14 @@ export default class layout extends React.Component {
     render() {
         return (
             <div>
-                <TitleLayout width="100" height="500" title="测试"/>
+                <TitleLayout width="100" height="300" title="title">
+
+                </TitleLayout>
+                <div>
+                    <p>说明:</p>
+                    <p>宽度赋值为百分比</p>
+                    <p>高度为minHeigh，赋值为px</p>
+                </div>
             </div>
         )
     }
