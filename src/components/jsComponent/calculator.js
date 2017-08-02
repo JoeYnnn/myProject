@@ -4,7 +4,7 @@
 import React from 'react'
 import './calculator.css'
 
-export default class layout extends React.Component {
+export default class calculator extends React.Component {
     constructor(props) {
         super(props)
         this.state = {

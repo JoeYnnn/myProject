@@ -32,7 +32,7 @@ class Sider extends React.Component {
         }
     }
 
-    handleClick = (e) => {
+    handleClick(e) {
         this.setState({
             current: e.key
         })
