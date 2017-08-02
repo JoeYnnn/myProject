@@ -21,7 +21,7 @@ export default class layout extends React.Component {
     inputNum(e) {
         if (!isNaN(e.target.childNodes[0].nodeValue)) {
             if (this.state.result == 0) {
-                if ((this.state.result +  '').indexOf('.') != -1) {
+                if ((this.state.result + '').indexOf('.') != -1) {
                     this.setState({
                         result: this.state.result + e.target.childNodes[0].nodeValue
                     })
@@ -62,11 +62,11 @@ export default class layout extends React.Component {
                 secondResult: this.state.result,
                 result: 0
             })
-        } else if (e.target.childNodes[0].nodeValue == '='){
+        } else if (e.target.childNodes[0].nodeValue == '=') {
             let result = 0;
             result = this.state.secondResult + this.state.symbol + this.state.result
             this.setState({
-                result:eval(result)
+                result: eval(result)
             })
         }
     }
