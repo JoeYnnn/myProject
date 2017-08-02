@@ -33,19 +33,28 @@ export default class calculator extends React.Component {
                         result: e.target.childNodes[0].nodeValue
                     })
                 }
-            } else if (this.state.symbol && !this.state.secondNum) {
-                this.setState({
-                    secondNum: +this.state.secondNum + +e.target.childNodes[0].nodeValue,
-                    result: +this.state.secondNum + +e.target.childNodes[0].nodeValue
-                })
-            } else if (this.state.firstNum && this.state.symbol && this.state.secondNum) {
+            } else if (this.state.symbol) {
+                if (this.state.secondNum != 0) {
+                    this.setState({
+                        secondNum: this.state.secondNum + e.target.childNodes[0].nodeValue,
+                        result: this.state.secondNum + e.target.childNodes[0].nodeValue
+                    })
+                } else {
+                    this.setState({
+                        secondNum: e.target.childNodes[0].nodeValue,
+                        result: e.target.childNodes[0].nodeValue
+                    })
+                }
+            }
+            else if (this.state.firstNum && this.state.symbol && this.state.secondNum) {
                 this.setState({
                     firstNum: e.target.childNodes[0].nodeValue,
                     result: e.target.childNodes[0].nodeValue,
                     symbol: '',
                     secondNum: 0
                 })
-            } else {
+            }
+            else {
                 this.setState({
                     firstNum: this.state.firstNum + e.target.childNodes[0].nodeValue,
                     result: this.state.firstNum + e.target.childNodes[0].nodeValue
@@ -103,7 +112,7 @@ export default class calculator extends React.Component {
     render() {
         return (
             <div className="big">
-                <div className="result">{this.state.result}</div>
+                <div className="result">{this.state.result} <span className="symbol">{this.state.symbol}</span></div>
                 <div className="num" onClick={(e) => this.inputNum(e)}>AC</div>
                 <div className="num" onClick={(e) => this.inputNum(e)}>+/-</div>
                 <div className="num" onClick={(e) => this.inputNum(e)}>%</div>

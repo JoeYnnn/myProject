@@ -48,7 +48,7 @@ class Sider extends React.Component {
                 <div id="leftMenu">
                     <img src='src/assets/images/logo.png' width="50" id="logo"/>
                     <Menu theme="dark"
-                          onClick={this.handleClick}
+                          onClick={(e)=>this.handleClick(e)}
                           style={{width: 185}}
                           defaultOpenKeys={[]}
                           defaultSelectedKeys={[this.state.current]}
