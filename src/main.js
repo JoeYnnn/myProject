@@ -18,6 +18,7 @@ import './main.css'
 // 引入单个页面（包括嵌套的子页面）
 import Titlelayout from './components/layout'
 import Index from './components/index'
+import calculator from './components/jsComponent/calculator'
 
 const ACTIVE = {color: 'red'}
 
@@ -58,6 +59,7 @@ class Sider extends React.Component {
                             <Menu.Item key="2"><Link to="Titlelayout">Titlelayout</Link></Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub2" title={<span><Icon type="desktop"/><span>JS逻辑</span></span>}>
+                            <Menu.Item key="3"><Link to="calculator">H5计算器</Link></Menu.Item>
                         </SubMenu>
                     </Menu>
                 </div>
@@ -82,6 +84,7 @@ render((
             <IndexRoute path="Index" component={Index}/>
             <Route path="Titlelayout" component={Titlelayout}/>
             <Route path="Index" component={Index}/>
+            <Route path="calculator" component={calculator}/>
         </Route>
     </Router>
 ), document.getElementById('app'));
