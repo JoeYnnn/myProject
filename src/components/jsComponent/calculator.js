@@ -21,7 +21,7 @@ export default class layout extends React.Component {
     inputNum(e) {
         if (!isNaN(e.target.childNodes[0].nodeValue)) {
             if (this.state.result == 0) {
-                if ((this.state.result + '').indexOf('.') != -1) {
+                if ((this.state.result +  '').indexOf('.') != -1) {
                     this.setState({
                         result: this.state.result + e.target.childNodes[0].nodeValue
                     })
