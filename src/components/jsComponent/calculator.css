@@ -12,7 +12,8 @@
     font-size: 50px;
     line-height: 120px;
     color: black;
-    padding:30px 50px 0 0;
+    padding:30px 35px 0 0;
+    overflow: hidden;
 }
 .num{
     width:100px;

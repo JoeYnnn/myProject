@@ -9,8 +9,9 @@ export default class layout extends React.Component {
         super(props)
         this.state = {
             result: 0,
-            secondResult: 0,
-            symbol: ''
+            secondNum: 0,
+            symbol: '',
+            firstNum: 0
         }
     }
 
@@ -20,37 +21,48 @@ export default class layout extends React.Component {
 
     inputNum(e) {
         if (!isNaN(e.target.childNodes[0].nodeValue)) {
-            if (this.state.result == 0) {
-                if ((this.state.result + '').indexOf('.') != -1) {
+            if (this.state.firstNum == 0) {
+                if ((this.state.firstNum + '').indexOf('.') != -1) {
                     this.setState({
-                        result: this.state.result + e.target.childNodes[0].nodeValue
+                        firstNum: this.state.firstNum + e.target.childNodes[0].nodeValue,
+                        result: this.state.firstNum + e.target.childNodes[0].nodeValue,
                     })
                 } else {
                     this.setState({
+                        firstNum: e.target.childNodes[0].nodeValue,
                         result: e.target.childNodes[0].nodeValue
                     })
                 }
+            } else if (this.state.symbol) {
+                this.setState({
+                    secondNum: e.target.childNodes[0].nodeValue,
+                    result: e.target.childNodes[0].nodeValue
+                })
             } else {
                 this.setState({
-                    result: this.state.result + e.target.childNodes[0].nodeValue
+                    firstNum: this.state.firstNum + e.target.childNodes[0].nodeValue,
+                    result: this.state.firstNum + e.target.childNodes[0].nodeValue
                 })
             }
         } else if (e.target.childNodes[0].nodeValue == 'AC') {
             this.setState({
-                result: 0
+                result: 0,
+                firstNum: 0,
+                secondNum: 0,
+                symbol: ''
             })
         } else if (e.target.childNodes[0].nodeValue == '+/-') {
             this.setState({
-                result: this.state.result * -1
+                result: this.state.firstNum * -1
             })
         } else if (e.target.childNodes[0].nodeValue == '%') {
             this.setState({
-                result: this.state.result / 100
+                result: this.state.firstNum / 100
             })
         } else if (e.target.childNodes[0].nodeValue == '.') {
-            if ((this.state.result + '').indexOf('.') == -1) {
+            if ((this.state.firstNum + '').indexOf('.') == -1) {
                 this.setState({
-                    result: this.state.result + '.'
+                    firstNum: this.state.firstNum + '.'
                 })
             }
         } else if (e.target.childNodes[0].nodeValue == '+' ||
@@ -59,15 +71,25 @@ export default class layout extends React.Component {
             e.target.childNodes[0].nodeValue == '/') {
             this.setState({
                 symbol: e.target.childNodes[0].nodeValue,
-                secondResult: this.state.result,
-                result: 0
+                secondNum: 0,
+                firstNum: this.state.firstNum,
             })
-        } else if (e.target.childNodes[0].nodeValue == '=') {
+        } else if (e.target.childNodes[0].nodeValue == '=' && this.state.symbol) {
             let result = 0;
-            result = this.state.secondResult + this.state.symbol + this.state.result
-            this.setState({
-                result: eval(result)
-            })
+            result = this.state.firstNum + this.state.symbol + this.state.secondNum
+            if((this.state.result+'').indexOf('e') != -1){
+                this.setState({
+                    result: 0,
+                    firstNum: 0
+                })
+            }else {
+                this.setState({
+                    result: parseFloat(eval(result)),
+                    firstNum: parseFloat(eval(result))
+                })
+            }
+
+
         }
     }
 
