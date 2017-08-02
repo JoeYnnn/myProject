@@ -7,4 +7,3 @@ npm-debug.log
 .DS_Store
 .idea
 *.log
-*.yml

@@ -33,10 +33,17 @@ export default class layout extends React.Component {
                         result: e.target.childNodes[0].nodeValue
                     })
                 }
-            } else if (this.state.symbol) {
+            } else if (this.state.symbol && !this.state.secondNum) {
                 this.setState({
-                    secondNum: e.target.childNodes[0].nodeValue,
-                    result: e.target.childNodes[0].nodeValue
+                    secondNum: +this.state.secondNum + +e.target.childNodes[0].nodeValue,
+                    result: +this.state.secondNum + +e.target.childNodes[0].nodeValue
+                })
+            } else if (this.state.firstNum && this.state.symbol && this.state.secondNum) {
+                this.setState({
+                    firstNum: e.target.childNodes[0].nodeValue,
+                    result: e.target.childNodes[0].nodeValue,
+                    symbol: '',
+                    secondNum: 0
                 })
             } else {
                 this.setState({
@@ -57,7 +64,7 @@ export default class layout extends React.Component {
             })
         } else if (e.target.childNodes[0].nodeValue == '%') {
             this.setState({
-                result: this.state.firstNum / 100
+                result: this.state.result / 100
             })
         } else if (e.target.childNodes[0].nodeValue == '.') {
             if ((this.state.firstNum + '').indexOf('.') == -1) {
@@ -77,12 +84,12 @@ export default class layout extends React.Component {
         } else if (e.target.childNodes[0].nodeValue == '=' && this.state.symbol) {
             let result = 0;
             result = this.state.firstNum + this.state.symbol + this.state.secondNum
-            if((this.state.result+'').indexOf('e') != -1){
+            if ((this.state.result + '').indexOf('e') != -1) {
                 this.setState({
                     result: 0,
                     firstNum: 0
                 })
-            }else {
+            } else {
                 this.setState({
                     result: parseFloat(eval(result)),
                     firstNum: parseFloat(eval(result))
