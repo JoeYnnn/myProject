@@ -1,6 +1,6 @@
 .big{
-    width: 408px;
-    height: 712px;
+    width: 400px;
+    height: 621px;
     margin: 0 auto;
 }
 .result{
@@ -14,6 +14,13 @@
     color: black;
     padding:30px 35px 0 0;
     overflow: hidden;
+    position: relative;
+}
+.symbol{
+    position: absolute;
+    right: 10px;
+    top: -15px;
+    font-size: 25px;
 }
 .num{
     width:100px;
