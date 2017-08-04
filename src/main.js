@@ -19,6 +19,7 @@ import './main.css'
 import Titlelayout from './components/layout'
 import Index from './components/index'
 import calculator from './components/jsComponent/calculator'
+import xingzuo from './components/jsComponent/xingzuo'
 
 const ACTIVE = {color: 'red'}
 
@@ -61,6 +62,9 @@ class Sider extends React.Component {
                         <SubMenu key="sub2" title={<span><Icon type="desktop"/><span>JS逻辑</span></span>}>
                             <Menu.Item key="3"><Link to="calculator">H5计算器</Link></Menu.Item>
                         </SubMenu>
+                        <SubMenu key="sub3" title={<span><Icon type="appstore"/><span>一些好玩的</span></span>}>
+                            <Menu.Item key="4"><Link to="xingzuo">星座运势</Link></Menu.Item>
+                        </SubMenu>
                     </Menu>
                 </div>
                 <div id="rightWrap">
@@ -85,6 +89,7 @@ render((
             <Route path="Titlelayout" component={Titlelayout}/>
             <Route path="Index" component={Index}/>
             <Route path="calculator" component={calculator}/>
+            <Route path="xingzuo" component={xingzuo}/>
         </Route>
     </Router>
 ), document.getElementById('app'));
