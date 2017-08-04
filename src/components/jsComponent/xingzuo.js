@@ -14,7 +14,6 @@ import {Rate} from 'antd';
 
 const host = 'https://api.jisuapi.com/astro/fortune?'
 const key = 'appkey=edf06bb8539ab1c2'
-const value = 3
 
 export default class layout extends React.Component {
     constructor(props) {
@@ -41,7 +40,7 @@ export default class layout extends React.Component {
         }).then(res => res.json().then(
             r => this.setState({
                 result: r.result
-            },console.log(r.result))
+            })
             )
         )
     }

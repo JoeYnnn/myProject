@@ -22,7 +22,7 @@ export default class layout extends React.Component {
                 <div>
                     <p>说明:</p>
                     <p>宽度赋值为百分比</p>
-                    <p>高度为minHeigh，赋值为px</p>
+                    <p>高度为minHeigh，赋值为string有%时候为%，其余为px</p>
                 </div>
             </div>
         )
