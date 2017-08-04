@@ -12,7 +12,7 @@ import {Tabs} from 'antd';
 const TabPane = Tabs.TabPane;
 import {Rate} from 'antd';
 
-const host = 'http://api.jisuapi.com/astro/fortune?'
+const host = 'https://api.jisuapi.com/astro/fortune?'
 const key = 'appkey=edf06bb8539ab1c2'
 const value = 3
 
